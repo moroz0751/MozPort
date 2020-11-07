@@ -4,7 +4,7 @@
 
 It is an MVC application based on Rails 6 that implements a variety of packages.
 I have a number of ideas that I want to implement in this project, and I plan to keep it growing.
-You can view the live version powered by Heroku via this [link](https://mozport.herokuapp.com/).
+You can visit the live version powered by Heroku via this [link](https://mozport.herokuapp.com/).
 
 # Software packages
 - Rails (6.0.3.2)
