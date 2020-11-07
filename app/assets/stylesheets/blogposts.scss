@@ -1,0 +1,110 @@
+// Place all the styles related to the Blogposts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@keyframes blogpost-highlight {
+	0% {
+		background: #ffe5c696;
+	}
+	100% {
+		background: none;
+	}
+}
+
+.blogpost-highlight {
+	animation: blogpost-highlight 3s;
+}
+
+.card {
+	margin-top: 2em;
+	margin-bottom: 1em;
+	background-color: #fdfdfd;
+	// max-width: 50em;
+
+	.card-signature {
+		margin: 0 0 1em;
+		a {
+			.card-signature-avatar {
+			}
+			.card-signature-info {
+				margin-left: 0.7em;
+				margin-top: 0.1em;
+
+				.card-signature-author {
+					margin: 0;
+					color: #006fe6;
+				}
+				.card-signature-time {
+					margin: 0;
+					color: grey;
+				}
+				.card-signature-time:hover {
+					color: grey;
+				}
+				.card-signature-time {
+				}
+			}
+		}
+		a:hover {
+			text-decoration: none;
+			color: #006fe6;
+		}
+	}
+
+	.card-title {
+		margin-top: 0.2em;
+		margin-bottom: 1em;
+	}
+
+	.blogpost-title-link {
+		color: black;
+		.card-title {
+			margin-bottom: 1.3em;
+		}
+	}
+	.blogpost-body-link {
+		color: black;
+	}
+	.blogpost-body-link:hover {
+		color: black;
+		text-decoration: none;
+	}
+	.blogpost-actions {
+		margin-top: 1.5em;
+		margin-bottom: 0;
+
+		.button_to {
+			display: inline;
+		}
+		.btn {
+			padding: 0.1em 0.3em 0.2em;
+			height:: max-content;
+			width: max-content;
+			margin-right: 0.5em;
+		}
+		.btn-outline-warning {
+			color: #917a40;
+		}
+		.btn-outline-warning:hover:not([disabled]) {
+			color: white;
+		}
+		.btn-outline-warning:hover:disabled {
+			background: #efefef;
+		}
+	}
+}
+.form-inline {
+	width: 100%;
+	flex-wrap: nowrap;
+
+	.form-control {
+		width: 35em;
+	}
+}
+.no-posts-msg {
+	margin-bottom: 1em;
+	margin-top: 2em;
+}
+.btn-more {
+	margin-top: 1em;
+}

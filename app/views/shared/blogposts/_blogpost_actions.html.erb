@@ -1,0 +1,28 @@
+<div class="blogpost-actions d-flex justify-content-between">
+
+	<% if local_assigns.key? :saved_blogpost %>
+	  <div class="blogpost-view-actions">
+	    <a><%= link_to '', saved_blogpost, method: :delete, class: "fas fa-bookmark", title: "unsave_blogpost" %></a>
+	  </div>
+  <% elsif user_signed_in? && blogpost.saved_by?(current_user) %>
+    <div class="blogpost-view-actions">
+      <a><%= link_to '', current_user.saved_blogposts.find_by(blogpost_id: blogpost.id), method: :delete, class: "fas fa-bookmark", title: "unsave_blogpost" %></a>
+    </div>
+	<% elsif !user_signed_in? %>
+	  <div>
+      <a><%= link_to '', saved_blogposts_path(blogpost_id: blogpost), method: :post, class: "far fa-bookmark", title: "save_blogpost"  %></a>
+    </div>
+  <% else %>
+    <div>
+      <a><%= link_to '', saved_blogposts_path(blogpost_id: blogpost), method: :post, class: "far fa-bookmark", title: "save_blogpost" %></a>
+    </div>
+	<% end %>
+
+  <div>
+    <% if user_signed_in? && (blogpost.created_by?(current_user) || current_user.is_master_admin?) %>
+      <a><%= link_to 'Edit', edit_blogpost_path(blogpost), class: "btn btn-outline-info btn-sm btn-no-outline" %></a>
+      <a><%= link_to 'Delete', blogpost, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm btn-no-outline" %></a>
+    <% end %>
+  </div>
+
+</div>

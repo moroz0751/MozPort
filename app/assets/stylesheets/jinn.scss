@@ -1,0 +1,26 @@
+// Place all the styles related to the Jinn controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.jinn-image {
+	border-radius: 3.5em / 2em;
+	border-style: hidden;
+	max-width: 45em;
+	width: 100%;
+	display: flex;
+}
+.dialogue {
+	.card {
+		margin: 0;
+		border-radius: 3em / 3em;
+	}
+	.prophecy-card {
+		display: none;
+	}
+	.prophecy-button {
+		p {
+			margin: 0;
+		}
+	}
+}

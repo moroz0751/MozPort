@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bananas:
+  id:       1
+  title:  Did you know that bananas are radioactive?
+  body:   Each BED (banana equivalent dose) corresponds to 0.1 μSv of ionizing radiation.
+  user_id:  1
+
+cherophobia:
+  id:       2
+  title:  What is cherophobia?
+  body:   Cherophobia is an irrational fear of fun or happiness.
+  user_id:  1
+
+kangaroos:
+  id:       3
+  title:  How to stop a kangaroo from hopping
+  body:   Lift its tail off the ground--then it can't hop.
+  user_id:  2
+
+coke:
+  id:       4
+  title:  Coca-Cola owns a lot of websites with interesting names...  
+  body:   Coca-Cola owns all website URLs that can be read as ahh, all the way up to 62 h’s!
+  user_id:  2

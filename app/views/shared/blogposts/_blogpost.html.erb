@@ -1,0 +1,54 @@
+<% if @full_length %>
+  <div class="card mx-auto col-xl-8 col-lg-10 col-md-12 col-sm-12 col-12 p-0">
+<% else %>
+  <div class="card mx-auto col-xl-8 col-lg-9 col-md-11 col-sm-11 col-12 p-0">
+<% end %>
+  <% if blogpost == @updated_blogpost %>
+    <div class="blogpost-highlight">
+  <% else %>
+    <div>
+  <% end %>
+    <div class="card-body">
+
+      <div class="card-signature">
+        <%= link_to blogposts_path(user_id: blogpost.user_id) do %>
+          <div class="d-inline-block align-middle">
+            <% if blogpost.user.avatar.attached? %>
+              <%= image_tag(blogpost.user.avatar, size: "40x40", class: "rounded-circle") %>
+            <% else %>
+              <%= image_tag('blank_avatar.jpg', size: "40x40", class: "rounded-circle") %>
+            <% end %>
+          </div>
+          <div class="d-inline-block align-middle card-signature-info">
+            <h6 class="card-signature-author"><%= "#{blogpost.user.first_name} #{blogpost.user.last_name}" %></h6>
+            <p class="card-signature-time"><small><%= format_time(blogpost.created_at) %></small></p>
+          </div>
+        <% end %>
+      </div>
+
+      <% if @full_length %>
+        <h4 class="card-title text-center"><%= blogpost.title %></h4>
+        <p class="card-text">
+          <%= simple_format(blogpost.body) %>
+        </p>
+      <% else %>
+        <%= link_to blogpost, class: "blogpost-title-link" do %>
+          <h5 class="card-title"><%= blogpost.title %></h5>
+        <% end %>
+
+        <%= link_to blogpost, class: "blogpost-body-link" do %>
+          <p class="card-text">
+            <%= simple_format(truncate((blogpost.body), length: 370)) %>
+          </p>
+        <% end %>
+      <% end %>
+
+      <% if local_assigns.has_key?(:saved_blogpost) %>
+        <%= render partial: '/shared/blogposts/blogpost_actions', locals: { blogpost: blogpost, saved_blogpost: saved_blogpost } %>
+      <% else %>
+        <%= render partial: '/shared/blogposts/blogpost_actions', locals: { blogpost: blogpost } %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

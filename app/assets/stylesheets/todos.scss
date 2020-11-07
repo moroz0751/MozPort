@@ -1,0 +1,44 @@
+// Place all the styles related to the Todos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.todo-actions {
+	margin-top: 1.5em;
+	margin-bottom: 0;
+
+	.button_to {
+		display: inline;
+	}
+	.btn {
+		padding: 0.1em 0.3em 0.2em;
+		height:: max-content;
+		width: max-content;
+		margin-right: 0.5em;
+	}
+	.btn-outline-warning {
+		color: #917a40;
+	}
+	.btn-outline-warning:hover:not([disabled]) {
+		color: white;
+	}
+	.btn-outline-warning:hover:disabled {
+		background: #efefef;
+	}
+}
+
+table {
+	tr {
+		.completed-text {
+			text-decoration: line-through;
+			color: grey;
+		}
+		.completed-icon {
+			color: grey;
+		}
+		.bottom-row {
+			padding: 0;
+		}
+	}
+
+
+}

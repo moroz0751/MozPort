@@ -1,0 +1,19 @@
+<%= page_title("My Saved Posts") %>
+
+<% if @saved_blogposts.any? %>
+  <% @saved_blogposts.each do |saved_blogpost| %>
+    <%= render partial: 'shared/blogposts/blogpost', object: saved_blogpost.blogpost, locals: { saved_blogpost: saved_blogpost } %>
+  <% end %>
+
+  <div id="more-content"></div>
+
+  <p class="text-center" id="more-button">
+    <%= render partial: 'shared/blogposts/more_button.html.erb' %>
+  </p>
+
+<% else %>
+  <div class="card mx-auto col-lg-6 col-md-10">
+    <h4 class="no-posts-msg text-center text-info">Looks like you don't have any...</h4>
+    <h5 class="text-center text-secondary mb-5 preserve-white-space">To save one, click on  <span class="far fa-bookmark"></span>  underneath the post you like :)</h5>
+  </div>
+<% end %>

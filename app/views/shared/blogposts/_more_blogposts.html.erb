@@ -1,0 +1,9 @@
+<% if @blogposts_to_render && @blogposts_to_render.count > 0 %>
+	<% @blogposts_to_render.each do |blogpost| %>
+  	<%= render partial: 'shared/blogposts/blogpost', object: blogpost %>
+  <% end %>
+<% elsif @saved_blogposts_to_render.count > 0 %>
+	<% @saved_blogposts_to_render.each do |saved_blogpost| %>
+		<%= render partial: 'shared/blogposts/blogpost', object: saved_blogpost.blogpost, locals: { saved_blogpost: saved_blogpost } %>
+	<% end %>
+<% end %>

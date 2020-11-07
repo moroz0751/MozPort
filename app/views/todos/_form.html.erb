@@ -1,0 +1,26 @@
+<%= form_with(model: todo, local: true, class: "form-group card mx-auto col-xl-8 col-lg-10 col-md-12 col-sm-12 col-12") do |form| %>
+  <% if todo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+
+      <ul>
+        <% todo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-body">
+    <h4 class="mx-auto text-center ">
+      <%= form.text_field :task, class: "form-control", placeholder: :task %>
+    </h4>
+
+      <div class="todo-actions d-flex justify-content-between">
+        <div class="todo-view-actions">
+          <a><%= form.submit (action_name=="edit" ? "Save" : "Add"), class: 'btn btn-outline-warning btn-sm' %></a>
+        </div>
+        <a><%= link_to 'Cancel', request.referer.present? ? request.referer : root_path, class: "card-link btn btn-outline-primary btn-sm btn-no-outline" %></a>
+      </div>
+  </div>
+<% end %>

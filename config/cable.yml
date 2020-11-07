@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: test
+
+production:
+  adapter: redis
+  url: redis://redistogo:d0ef54052eb8841e2ef90cc8989140ef@barb.redistogo.com:9366/
+  # channel_prefix: blog_production

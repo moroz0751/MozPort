@@ -1,0 +1,24 @@
+<%= page_title("Free fortune-teller service") %>
+
+<div class="d-flex flex-wrap">
+	<%= image_tag('jinn_animated.gif', class: "jinn-image col-11 col-lg-6 mx-auto px-lg-4 px-md-1") %>
+	<div class="dialogue col-11 col-lg-6 mt-3 mt-lg-0 mx-auto text-center">
+
+		<div class="card card-body mb-4">
+	    <p>Why hello there! I am your personal Jinn-assistant.</p>
+	    <p></p>
+	    <p>Concentrate on an event or decision you are unsure about, and perhaps... I will tell you the ONLY truth!</p>
+	  </div>
+
+	  <div class="card card-body mb-4 prophecy-card" id="prophecy-card">
+	    <h5 class="prophecy-response text-danger" id="prophecy-response"></h5>
+	  </div>
+
+		<div>
+	    <%= link_to 'Hear my prophecy!', jinn_predict_path, class: "prophecy-button btn btn-outline-info btn-lg text-center", id: "prophecy-button", remote: true %> 
+	  </div>
+
+	</div>
+</div>	
+
+

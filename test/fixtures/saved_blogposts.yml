@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+bananas:
+  user_id:      2
+  blogpost_id:  1
+
+cherophobia:
+  user_id:      2
+  blogpost_id:  1
+
+kangaroos:
+  user_id:      1
+  blogpost_id:  2
+
+coke:
+  user_id:      1
+  blogpost_id:  2

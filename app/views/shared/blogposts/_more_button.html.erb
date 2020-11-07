@@ -1,0 +1,7 @@
+<% if @has_more %>
+	<% if controller_name == 'blogposts' %>
+  	<%= link_to 'More...', more_blogposts_path(more: (params[:more].to_i + 1), user_id: (@user ? @user.id : nil)), class: "btn btn-outline-secondary btn-sm btn-more", id: "more-button", remote: true %>  
+	<% elsif controller_name == 'saved_blogposts' %>
+		<%= link_to 'More...', more_saved_blogposts_path(more: (params[:more].to_i + 1)), class: "btn btn-outline-secondary btn-sm btn-more", id: "more-button", remote: true %> 
+	<% end %>
+<% end %>

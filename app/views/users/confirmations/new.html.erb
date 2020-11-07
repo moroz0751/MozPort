@@ -1,0 +1,16 @@
+<%= page_title("Resend confirmation instructions") %>
+
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "mx-auto col-xl-6 col-md-10 col-12" }) do |f| %>
+  <%= render "users/shared/error_messages", resource: resource %>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Resend confirmation instructions", class: "btn btn-outline-primary btn-md" %>
+  </div>
+<% end %>
+
+<%= render "users/shared/links" %>

@@ -1,0 +1,45 @@
+<%= page_title("My To-Do's") %>
+
+<% if @todos.any? %>
+  <% cache @todos do %>
+    <div class="container-fluid table-responsive col-xl-8 col-lg-12">
+      <table class="table table-hover mx-auto">
+        <tbody>
+          <% @todos.where(status: 0).order(:updated_at).reverse_order.each do |todo| %>
+            <% cache todo do %>
+              <%= render partial: 'shared/todos/todo', locals: { todo: todo } %>
+            <% end %>
+          <% end %>
+
+          <% @todos.where(status: 1).order(:updated_at).reverse_order.each do |todo| %>
+            <% cache todo do %>
+              <%= render partial: 'shared/todos/todo', locals: { todo: todo } %>
+            <% end %>
+          <% end %>
+
+          <tr class="d-flex">
+            <td colspan="0" class="col-12 bottom-row"></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center">
+        <%= link_to 'Add', new_todo_path, class: "card-link btn btn-outline-primary btn-sm btn-no-outline"  %>
+      </div>
+    </div>
+  <% end %>
+
+
+
+<% else %>
+  <div class="d-flex justify-content-center">
+    <%= link_to 'Add', new_todo_path, class: "card-link btn btn-outline-primary btn-sm "  %>
+  </div>
+
+  <div class="card mx-auto col-lg-6 col-md-10">
+    <h4 class="no-posts-msg text-center text-info">Looks like you don't have any To-Do's yet...</h4>
+    <h5 class="text-center text-secondary mb-5">To create one, click on 'Add' above :)</h5>
+  </div>
+<% end %>
+
+
+

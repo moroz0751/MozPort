@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md navbar-dark pl-lg-4 pl-md-2 pl-sm-1 pl-0 bg-dark topbar">
+
+<%= link_to image_tag('mozport_icon_hq.png', class: "mozport_icon") + raw('<span class="navbar-brand ml-lg-2 ml-md-1 ml-sm-1 ml-1">MozPort</span>'), blogposts_path %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <ul class="navbar-nav">
+      <% if Blogpost.all.any? %>
+        <%= link_to "About", Blogpost.find_by(id: 3), class: "nav-item pull-right active nav-link" %>
+      <% else %>
+        <%= link_to "About", blogposts_path, class: "nav-item pull-right active nav-link" %>
+      <% end %>
+      <% if !user_signed_in? %>
+        <%= link_to "Register", new_user_registration_path, class: "nav-item pull-right active nav-link" %>
+        <%= link_to "Login", new_user_session_path, class: "nav-item pull-right active nav-link" %>
+      <% else %>
+        <%= link_to "My account", edit_user_registration_path, class: "nav-item pull-right active nav-link" %>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "nav-item pull-right active nav-link" %>
+      <% end %>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap's responsive viewport meta tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://kit.fontawesome.com/534eee6254.js" crossorigin="anonymous"></script>
+
+    <%= favicon_link_tag 'mozport_icon.ico' %>
+    <title><%= yield :page_title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container-fluid content-all">
+      <div class="row row-top">
+        <%= render(partial: '/layouts/navbar_top') %>
+      </div>
+      <div class="row row-main">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 col-3 mysidebar-left bg-light">
+          <%= render_if(render_left_bar?, partial: '/layouts/mysidebar_left') %>
+        </div>
+
+        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-9 col-9 content-center">
+          <%= display_alert %>
+          <%= display_notice %>
+          <header class="page-header">
+            <h1><%= yield :page_title %></h1>
+          </header>
+          <main class='<%= controller.controller_name %>'>
+            <%= yield %>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

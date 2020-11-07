@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+  <% user_self_hash = { user_id: current_user.id } %>
+<% else %>
+  <% user_self_hash = { must_authenticate: true } %>
+<% end %>
+
+<div class="px-2">
+  <% if user_signed_in?%>
+    <% if current_user.avatar.attached? %>
+      <%= link_to image_tag(current_user.avatar, class: "rounded-circle mx-auto mx-1 my-lg-2 my-md-2 my-sm-1 my-1 px-0 avatar img-fluid img-responsive border"), blogposts_path(user_self_hash) %>
+    <% else %>
+      <%= link_to image_tag('blank_avatar.jpg', class: "rounded-circle d-block mx-auto mx-1 my-lg-2 my-md-2 my-sm-1 my-1 px-0 avatar img-fluid img-responsive border"), blogposts_path(user_self_hash) %>
+    <% end %>
+  <% else %>
+    <%= link_to image_tag('anonymous_avatar.jpg', class: "rounded-circle d-block mx-auto mx-1 my-lg-2 my-md-2 my-sm-1 my-1 px-0 avatar img-fluid img-responsive border"), blogposts_path %>
+  <% end %>
+</div>
+
+<div class="sidebar-header px-xl-2">
+  <h2><%= truncate(current_user && current_user.first_name, length: 15) %></h2>
+  <h2><%= truncate(current_user && current_user.last_name, length: 15) %></h2>
+</div>
+<div class="list-group list-group-flush">
+  <%= link_to "All posts", blogposts_path, class: "list-group-item list-group-item-action" %>
+  <%= link_to "My posts", blogposts_path(user_self_hash), class: "list-group-item list-group-item-action" %>
+  <%= link_to "Saved", saved_blogposts_path, class: "list-group-item list-group-item-action" %>
+	<%= link_to "To-Do", todos_path, class: "list-group-item list-group-item-action" %>
+	<%= link_to "Dilemma", jinn_path, class: "list-group-item list-group-item-action" %>
+  <%= link_to "New", new_blogpost_path, class: "list-group-item list-group-item-action" %>
+</div>

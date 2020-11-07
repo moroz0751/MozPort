@@ -1,0 +1,5 @@
+<% page_title(nil, @blogpost.user, "Blogpost") %>
+
+<div id="blogpost-<%= @blogpost.id %>">
+  <%= render partial: '/shared/blogposts/blogpost', locals: { blogpost: @blogpost, full_length: true } %>
+</div>

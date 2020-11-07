@@ -1,0 +1,8 @@
+moreContentDiv = document.getElementById("more-content")
+moreButtonDiv = document.getElementById("more-button")
+
+moreBlogposts = "<%= j render partial: 'shared/blogposts/more_blogposts.html.erb' %>"
+updatedButton = "<%= j render partial: 'shared/blogposts/more_button.html.erb' %>"
+
+moreContentDiv.insertAdjacentHTML("beforeend", moreBlogposts)
+moreButtonDiv.innerHTML = updatedButton

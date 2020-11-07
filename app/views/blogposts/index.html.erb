@@ -1,0 +1,28 @@
+<%= page_title("All Blogposts", @user, "Blogposts") %>
+
+<% if false %>
+  <form class="form-inline my-2">
+    <input class="form-control ml-auto mr-1" type="search" placeholder="Search posts..." aria-label="Search">
+    <button class="btn btn-outline-success mr-auto" type="submit">Search</button>
+  </form>
+<% end %>
+
+<% if @blogposts.any? %>
+  <% @blogposts.each do |blogpost| %>
+    <div id="blogpost-<%= blogpost.id %>">
+      <%= render partial: 'shared/blogposts/blogpost', object: blogpost %>
+    </div>
+<% end %>
+
+  <div id="more-content"></div>
+
+  <p class="text-center" id="more-button">
+    <%= render partial: 'shared/blogposts/more_button.html.erb' %>
+  </p>
+
+<% else %>
+  <div class="card mx-auto col-lg-6 col-md-10">
+    <h4 class="no-posts-msg text-center text-info">Looks like there are no blogposts yet...</h4>
+    <h5 class="text-center text-secondary mb-5">To create one, click on 'New' in the menu :)</h5>
+  </div>
+<% end %>

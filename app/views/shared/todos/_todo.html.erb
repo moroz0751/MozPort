@@ -1,0 +1,25 @@
+<tr class="d-flex">
+  <% if todo.status == "completed" %>
+    <td class="status-col col-1 text-center">
+      <%= link_to check_off_todos_path(id: todo.id) do %>
+        <span class="far fa-lg fa-check-square completed-icon"></span>
+      <% end %>
+    </td>
+    <td class="col-8 completed-text"><%= todo.task %></td>
+    <td class="col-3">
+      <%= link_to 'Remove', todo, method: :delete, class: "btn btn-outline-danger btn-sm btn-no-outline float-right" %>
+      <%= link_to 'Edit', edit_todo_path(todo), class: "btn btn-outline-info btn-sm btn-no-outline float-right" %>
+    </td>
+  <% else %>
+    <td class="status-col col-1 text-center">
+      <%= link_to check_off_todos_path(id: todo.id) do %>
+        <span class="far fa-lg fa-square"></span>
+      <% end %>
+    </td>
+    <td class="col-8"><%= todo.task %></td>
+    <td class="col-3">
+      <%= link_to 'Remove', todo, method: :delete, class: "btn btn-outline-danger btn-sm btn-no-outline float-right" %>
+      <%= link_to 'Edit', edit_todo_path(todo), class: "btn btn-outline-info btn-sm btn-no-outline float-right" %>
+    </td>
+  <% end %>
+</tr>
